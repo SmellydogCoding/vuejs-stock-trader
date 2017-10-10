@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/main.js', './src/bootstrap.min.css'],
+  entry: ['./src/main.js', './src/scss/bootstrap.scss'],
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -26,13 +26,19 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
           use: [{
             loader: 'css-loader',
             options: {
               sourceMap: true
             }
+          },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
           }]
         })
       },
