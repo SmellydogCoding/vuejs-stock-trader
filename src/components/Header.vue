@@ -12,11 +12,14 @@
         ul.nav.navbar-nav.navbar-right
           li.nav-link
             a(href='#') End Day
-          li.nav-item.dropdown
-            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="showDropdown = !showDropdown") Save &amp; Load
-            div.dropdown-menu(aria-labelledby="navbarDropdownMenuLink" :class="{'d-block': showDropdown}")
-              a.dropdown-item(href='#') Save Data
-              a.dropdown-item(href='#') Load Data
+          li.dropdown
+            a.dropdown-toggle(href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Save &amp; Load 
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href='#') Save Data
+              li
+                a(href='#') Load Data
 </template>
 
 <script>

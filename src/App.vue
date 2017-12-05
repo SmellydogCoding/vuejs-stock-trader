@@ -2,7 +2,7 @@
   div.container
     app-header
     div.row
-      div.col-md-12
+      div.col-xs-12
         router-view
 </template>
 
@@ -12,6 +12,9 @@
   export default {
     components: {
       appHeader: Header
+    },
+    created () {
+      this.$store.dispatch('initialStocks')
     }
   }
 </script>
