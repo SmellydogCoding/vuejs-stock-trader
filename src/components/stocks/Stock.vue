@@ -8,7 +8,7 @@
         div.pull-left
           input.form-control(type="number" placeholder="Quantity" v-model="quantity")
         div.pull-right
-          button.btn.btn-success(@click="buy" :disabled="quantity <= 0 || !Number.isInteger(quantity)") Buy
+          button.btn.btn-success(@click="buy") Buy
 </template>
 
 <script>
@@ -22,8 +22,8 @@
     methods: {
       buy() {
         const purchase = { id: this.stock.id, price: this.stock.price, quantity: this.quantity }
-        console.log(purchase)
-        this.quantity = 0
+        this.$store.dispatch('buyStock', purchase);
+        this.quantity = 0;
       }
     }
   }
