@@ -9,6 +9,7 @@
             a Portfolio
           router-link(to='/stocks'  activeClass='active' tag='li' class="nav-link")
             a Stocks
+        strong.navbar-text.navbar-right Balance: ${{ balance }}
         ul.nav.navbar-nav.navbar-right
           li.nav-link
             a(href='#') End Day
@@ -27,6 +28,11 @@
     data () {
       return {
         showDropdown: false
+      }
+    },
+    computed: {
+      balance() {
+        return this.$store.getters.money
       }
     }
   }
