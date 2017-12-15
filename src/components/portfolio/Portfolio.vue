@@ -9,7 +9,7 @@
   
   export default {
     computed: {
-      ...mapGetters({ stocks: 'portfolio' })
+      ...mapGetters({ stocks: 'portfolio/portfolio' })
     },
     components: {
       appStock: Stock

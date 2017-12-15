@@ -28,11 +28,11 @@
         return parseInt(this.quantity) <= parseInt(this.stock.quantity)
       },
       balance() {
-        return this.$store.getters.money
+        return this.$store.getters['portfolio/money']
       }
     },
     methods: {
-      ...mapActions({ placeOrder: 'sell' }),
+      ...mapActions({ placeOrder: 'portfolio/sell' }),
       sell() {
         const purchase = { id: this.stock.id, price: this.stock.price, quantity: this.quantity }
         this.placeOrder(purchase);

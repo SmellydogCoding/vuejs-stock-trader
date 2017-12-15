@@ -11,7 +11,7 @@
     },
     computed: {
       stocks() {
-        return this.$store.getters.stocks;
+        return this.$store.getters['stocks/stocks'];
       }
     }
   }

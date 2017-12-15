@@ -4,14 +4,14 @@
     h6 you may Save & Load your Data
     h6 Click on 'End Day to begin a New Day!
     hr
-    p Your Balance: {{ balance }}
+    p Your Balance: {{ balance | money }}
 </template>
 
 <script>
   export default {
     computed: {
       balance() {
-        return this.$store.getters.money;
+        return this.$store.getters['portfolio/money'];
       }
     }
   }

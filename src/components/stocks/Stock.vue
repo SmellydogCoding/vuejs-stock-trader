@@ -25,13 +25,13 @@
         return this.quantity * this.stock.price > this.balance
       },
       balance() {
-        return this.$store.getters.money
+        return this.$store.getters['portfolio/money']
       }
     },
     methods: {
       buy() {
-        const purchase = { id: this.stock.id, price: this.stock.price, quantity: this.quantity }
-        this.$store.dispatch('buyStock', purchase);
+        const purchase = { id: this.stock.id, name: this.stock.name, price: this.stock.price, quantity: parseInt(this.quantity) }
+        this.$store.dispatch('stocks/buyStock', purchase);
         this.quantity = 0;
       }
     }

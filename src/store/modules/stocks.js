@@ -9,19 +9,27 @@ const mutations = {
     state.stocks = stocks;
   },
   'randomPrice' (state) {
-    
+    state.stocks.forEach(stock => {
+      stock.price = Math.round(stock.price * (1 + Math.random() - 0.5));
+    });
+  },
+  'loadStocks' (state, data) {
+    state.stocks = data.stocks;
   }
 };
 
 const actions = {
   buyStock: ({ commit }, purchase) => {
-    commit('buy', purchase);
+    commit('portfolio/buy', purchase, {root: true});
   },
   initialStocks: ({ commit }) => {
     commit('setStocks', stocks);
   },
   randomizePrices: ({ commit }) => {
     commit('randomPrice');
+  },
+  loadStocks: ({ commit }, data) => {
+    commit('loadStocks', data);
   }
 };
 
@@ -31,4 +39,4 @@ const getters = {
   }
 }
 
-export default { state, mutations, actions, getters }
+export default { namespaced: true, state, mutations, actions, getters }
